@@ -1,0 +1,5 @@
+{
+    "storage_key":"<YOUR STORAGE ACCOUNT KEY HERE>",
+    "customvision_projectid":"<YOUR CUSTOM VISION PROJECT ID HERE>",
+    "customvision_training_key":"<YOUR CUSTOM VISION TRAINING KEY HERE>"
+}
