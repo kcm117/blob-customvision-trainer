@@ -33,17 +33,15 @@ class CustomVisionBlobUploader(object):
         self.trainer = CustomVisionTrainingClient(cv_training_key, endpoint=self._cv_endpoint)
         self.project = self.trainer.get_project(cv_projectid)
 
-        # Handle tags that may not exist
+        # Handle tags that may not exist, get tags from project
         cv_tag_names = [tag.name for tag in self.trainer.get_tags(cv_projectid)]
         for tag in tags:
             if tag not in cv_tag_names:
                 self.trainer.create_tag(cv_projectid, tag, description=tag, type="Regular")
-
         self.tags_dict = {tag.name:tag for tag in self.trainer.get_tags(cv_projectid)}
 
     def start_timer(self):
         self.START_TIME = default_timer()
-
 
     def load_blob_batches(self, prefix):
         generator = self._block_blob_service.list_blobs(self._storage_container_name, prefix=prefix)
@@ -54,62 +52,57 @@ class CustomVisionBlobUploader(object):
     def get_blob_filename(self,blob_path):
         return blob_path.split('/')[-1]
 
-    def get_blob(self,session, blob_name):
-        base_url = "https://{}.blob.core.windows.net/{}/".format(
-            self._storage_acct_name,
-            self._storage_container_name
-        )
-        with session.get(base_url + blob_name) as response:
-            data = (response.url,response.content)
-            if response.status_code != 200:
-                print("FAILURE::{0}".format(session.url))
-            # print elapsed time
-            elapsed = default_timer() - self.START_TIME
-            time_completed_at = "{:5.2f}s".format(elapsed)
+    def get_blob(self, bbs, blob_name):
+        blob = bbs.get_blob_to_bytes(self._storage_container_name, blob_name)
+        # print elapsed time
+        elapsed = default_timer() - self.START_TIME
+        time_completed_at = "{:5.2f}s".format(elapsed)
         print("{0:<30} {1:>20}".format(blob_name, time_completed_at))
-        return data
+        return blob
 
     async def get_blob_asynchronous(self,batch_input,batch_output_list, tags):
         print("{0:<30} {1:>20}".format("File", "Completed at"))
         with ThreadPoolExecutor(max_workers=self._WORKER_CONCURRENCY) as executor:
-            with requests.Session() as session:
-                # Set any session parameters here before calling `get_blob`
-                loop = asyncio.get_event_loop()
-                # self.START_TIME = default_timer()
-                tasks = [
-                    loop.run_in_executor(
-                        executor,
-                        self.get_blob,
-                        *(session, blob)
-                    )
-                    for blob in batch_input
-                ]
-                for response in await asyncio.gather(*tasks):
-                    customvision_image = ImageFileCreateEntry(name=self.get_blob_filename(response[0]),contents=response[1],tag_ids=[self.tags_dict.get(tag).id for tag in tags])
-                    batch_output_list.append(customvision_image)
+
+            loop = asyncio.get_event_loop()
+            # self.START_TIME = default_timer()
+            tasks = [
+                loop.run_in_executor(
+                    executor,
+                    self.get_blob,
+                    *(self._block_blob_service, blob)
+                )
+                for blob in batch_input
+            ]
+            for response in await asyncio.gather(*tasks):
+                customvision_image = ImageFileCreateEntry(name=self.get_blob_filename(response.name),contents=response.content,tag_ids=[self.tags_dict.get(tag).id for tag in tags])
+                batch_output_list.append(customvision_image)
+
 
 def main():
     
     # Get command line argsendpoint
     storage_acct, storage_container, storage_prefix, tags, cvendpoint = [arg for arg in sys.argv[1:]]
     tags = tags.split(",")
-    print(cvendpoint)
+
+    print("*****Custom Vision Service - Blob Upload*****")
     
     # Load keys from keys.json
+    print("Loading Keys.")
     with open('keys.json', 'r') as json_file:
         keys = json.load(json_file)
 
     Uploader = CustomVisionBlobUploader(storage_acct, keys.get("storage_key"), storage_container, storage_prefix,
         cvendpoint, keys.get("customvision_projectid"), keys.get("customvision_training_key"), tags)
-
     
     # Get batch of blob paths
     Uploader.load_blob_batches(storage_prefix)
     
     # Pull images from blob & upload Training Batches
+    print("Begin Batches")
     Uploader.start_timer()
     for i, batch in enumerate(Uploader.batches):
-        
+        print("*****Batch {}*****".format(i+1))
         # Current batch is a list of ImageFileCreateEntry() objects
         current_batch = []
 
@@ -129,12 +122,12 @@ def main():
             print("*"*20)
             exit(-1)
         else:
-            print("Image batch {} upload successful.".format(i+1))
+            print("Image batch {} uploaded successfully.".format(i+1))
             elapsed = default_timer() - Uploader.START_TIME
             time_completed_at = "{:5.2f}s".format(elapsed)
             print("Image batch {} completed at {}".format(i+1, time_completed_at))
             print("*"*20)
-    
+
 
 if __name__ == "__main__":
   main()
