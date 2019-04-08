@@ -12,6 +12,14 @@ Instructions:
 
 1) **Keys** - Create a **keys.json file** in the same directory as the script.  You can use the keys_sample.json file as a template.  This local file will contain your Azure Storage key, Custom Vision training key, and Custom Vision project id (which can be found in the project settings page).
 
+    ```
+    {
+    "storage_key":"<YOUR STORAGE ACCOUNT KEY HERE>",
+    "customvision_projectid":"<YOUR CUSTOM VISION PROJECT ID HERE>",
+    "customvision_training_key":"<YOUR CUSTOM VISION TRAINING KEY HERE>"
+    }
+    ```
+
 2) **Training Data** - The script expects data to be structured in the blob storage account into different directories, with each directory containing files with specific tag(s).  Examples with cats and dogs classification:
     
     - container_name/animals/train/cat/many_pictures_of_cats.jpg
