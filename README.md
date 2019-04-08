@@ -1,5 +1,7 @@
 # Blob Storage to Custom Vision Uploader
 
+Note: Early version, not fully tested.
+
 This script is designed to pull images directly from a blob storage account and upload training images to the Custom Vision Service in batches.  This is beneficial if you would like to upload images directly from Azure Blob Storage to Custom Vision Service, without having them on a publicly accessible URL or dowenloading them to local storage.  You can run this script from a local machine, from an Azure VM, or anywhere you can execute Python Code and have internet connectivity!
 
 During initial testing on a laptop, it took ~ 8 seconds to pull and upload 100 tagged images from Azure Blob Storage to Custom Vision Service.
