@@ -1,0 +1,118 @@
+(env) C:\repo\blob-customvision-trainer>customvisionblobuploader.py kcmunninstoragev2 animals train/dog dog southcentralus
+*****Custom Vision Service - Blob Upload*****
+Loading Keys.
+Begin Batches
+*****Batch 1*****
+File                                   Completed at
+train/dog/american_bulldog_100.jpg                0.11s
+train/dog/american_bulldog_10.jpg                0.31s
+train/dog/american_bulldog_104.jpg                0.32s
+train/dog/american_bulldog_112.jpg                0.33s
+train/dog/american_bulldog_11.jpg                0.34s
+train/dog/american_bulldog_111.jpg                0.34s
+train/dog/american_bulldog_101.jpg                0.35s
+train/dog/american_bulldog_113.jpg                0.34s
+train/dog/american_bulldog_114.jpg                0.36s
+train/dog/american_bulldog_105.jpg                0.36s
+train/dog/american_bulldog_102.jpg                0.37s
+train/dog/american_bulldog_106.jpg                0.37s
+train/dog/american_bulldog_108.jpg                0.38s
+train/dog/american_bulldog_107.jpg                0.39s
+train/dog/american_bulldog_109.jpg                0.40s
+train/dog/american_bulldog_110.jpg                0.42s
+train/dog/american_bulldog_115.jpg                0.38s
+train/dog/american_bulldog_12.jpg                0.44s
+train/dog/american_bulldog_118.jpg                0.45s
+train/dog/american_bulldog_126.jpg                0.46s
+train/dog/american_bulldog_122.jpg                0.47s
+train/dog/american_bulldog_119.jpg                0.48s
+train/dog/american_bulldog_125.jpg                0.49s
+train/dog/american_bulldog_123.jpg                0.50s
+train/dog/american_bulldog_117.jpg                0.43s
+train/dog/american_bulldog_116.jpg                0.44s
+train/dog/american_bulldog_130.jpg                0.54s
+train/dog/american_bulldog_132.jpg                0.55s
+train/dog/american_bulldog_120.jpg                0.40s
+train/dog/american_bulldog_103.jpg                0.41s
+train/dog/american_bulldog_128.jpg                0.52s
+train/dog/american_bulldog_129.jpg                0.53s
+train/dog/american_bulldog_134.jpg                0.55s
+train/dog/american_bulldog_15.jpg                0.49s
+train/dog/american_bulldog_133.jpg                0.45s
+train/dog/american_bulldog_13.jpg                0.52s
+train/dog/american_bulldog_124.jpg                0.47s
+train/dog/american_bulldog_136.jpg                0.57s
+train/dog/american_bulldog_140.jpg                0.58s
+train/dog/american_bulldog_135.jpg                0.59s
+train/dog/american_bulldog_142.jpg                0.59s
+train/dog/american_bulldog_139.jpg                0.60s
+train/dog/american_bulldog_137.jpg                0.61s
+train/dog/american_bulldog_138.jpg                0.61s
+train/dog/american_bulldog_143.jpg                0.62s
+train/dog/american_bulldog_121.jpg                0.63s
+train/dog/american_bulldog_141.jpg                0.62s
+train/dog/american_bulldog_131.jpg                0.65s
+train/dog/american_bulldog_14.jpg                0.64s
+train/dog/american_bulldog_147.jpg                0.63s
+train/dog/american_bulldog_149.jpg                0.67s
+train/dog/american_bulldog_144.jpg                0.67s
+train/dog/american_bulldog_146.jpg                0.69s
+train/dog/american_bulldog_150.jpg                0.70s
+train/dog/american_bulldog_127.jpg                0.71s
+train/dog/american_bulldog_148.jpg                0.72s
+train/dog/american_bulldog_151.jpg                0.72s
+train/dog/american_bulldog_152.jpg                0.77s
+train/dog/american_bulldog_153.jpg                0.80s
+train/dog/american_bulldog_158.jpg                0.81s
+train/dog/american_bulldog_16.jpg                0.84s
+train/dog/american_bulldog_161.jpg                0.85s
+train/dog/american_bulldog_166.jpg                0.87s
+train/dog/american_bulldog_164.jpg                0.89s
+********************
+Uploading Batch 1.
+Image batch 1 uploaded successfully.
+Image batch 1 completed at  4.64s
+********************
+*****Batch 2*****
+File                                   Completed at
+train/dog/american_bulldog_167.jpg                4.70s
+train/dog/american_bulldog_173.jpg                4.72s
+train/dog/american_bulldog_171.jpg                4.72s
+train/dog/american_bulldog_175.jpg                4.72s
+train/dog/american_bulldog_174.jpg                4.72s
+train/dog/american_bulldog_176.jpg                4.73s
+train/dog/american_bulldog_169.jpg                4.72s
+train/dog/american_bulldog_172.jpg                4.74s
+train/dog/american_bulldog_177.jpg                4.77s
+train/dog/american_bulldog_198.jpg                4.77s
+train/dog/american_bulldog_200.jpg                4.78s
+train/dog/american_bulldog_202.jpg                4.80s
+train/dog/american_bulldog_180.jpg                4.94s
+train/dog/american_bulldog_181.jpg                4.94s
+train/dog/american_bulldog_179.jpg                4.95s
+train/dog/american_bulldog_183.jpg                4.95s
+train/dog/american_bulldog_178.jpg                4.96s
+train/dog/american_bulldog_182.jpg                4.96s
+train/dog/american_bulldog_185.jpg                4.97s
+train/dog/american_bulldog_184.jpg                4.98s
+train/dog/american_bulldog_18.jpg                4.99s
+train/dog/american_bulldog_190.jpg                4.99s
+train/dog/american_bulldog_19.jpg                5.01s
+train/dog/american_bulldog_187.jpg                5.02s
+train/dog/american_bulldog_193.jpg                5.02s
+train/dog/american_bulldog_189.jpg                5.03s
+train/dog/american_bulldog_196.jpg                5.03s
+train/dog/american_bulldog_188.jpg                5.04s
+train/dog/american_bulldog_194.jpg                5.05s
+train/dog/american_bulldog_197.jpg                5.05s
+train/dog/american_bulldog_186.jpg                5.06s
+train/dog/american_bulldog_191.jpg                5.06s
+train/dog/american_bulldog_192.jpg                5.13s
+train/dog/american_bulldog_168.jpg                5.16s
+train/dog/american_bulldog_201.jpg                5.20s
+train/dog/american_bulldog_199.jpg                5.23s
+********************
+Uploading Batch 2.
+Image batch 2 uploaded successfully.
+Image batch 2 completed at  8.19s
+********************
