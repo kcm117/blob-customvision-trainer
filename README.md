@@ -54,5 +54,9 @@ Instructions:
         customvisionblobuploader.py kcmunninstoragev2 animals train/cat cat southcentralus
         ```
 
+Next Steps:
+
+- After the images are uploaded, you can go into the Web GUI @ https://www.customvision.ai to train a new iteration of the model.  I may expand this script later to include training options.
+
 References:
 - (Async requests in Python) https://hackernoon.com/how-to-run-asynchronous-web-requests-in-parallel-with-python-3-5-without-aiohttp-264dc0f8546
